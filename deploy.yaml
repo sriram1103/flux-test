@@ -1,0 +1,15 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: what-the-helm
+  namespace: default
+  annotations:
+    fluxcd.io/automated: "false"
+    fluxcd.io/tag.chart-image: glob:3.1.1-debian-9-*
+spec:
+  releaseName: what-the-helm
+  chart:
+    git: ssh://sriram1103@github1.com/what-the-helm
+    ref: master
+    path: deploy.yaml
